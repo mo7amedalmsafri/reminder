@@ -71,11 +71,18 @@ document.getElementById('startButton').addEventListener('click', () => {
     const interval = intervalMinutes * 60 * 1000;
     let counter = 0;
 
+    const startButton = document.getElementById('startButton');
+    startButton.disabled = true;
+    startButton.textContent = '⏳ جارٍ التنبيه...';
+
     const playAlarm = () => {
         alert('🔔 منبه رقم ' + (counter + 1));
         counter++;
         if (counter < alarmCount) {
             setTimeout(playAlarm, interval);
+        } else {
+            startButton.disabled = false;
+            startButton.textContent = 'بدء التنبيه';
         }
     };
 
