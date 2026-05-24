@@ -68,6 +68,16 @@ document.getElementById('btn12').addEventListener('click', () => {
 document.getElementById('startButton').addEventListener('click', () => {
     const alarmCount = parseInt(document.getElementById('alarmCount').value);
     const intervalMinutes = parseInt(document.getElementById('interval').value);
+
+    if (!alarmCount || alarmCount < 1) {
+        alert('⚠️ يجب أن يكون عدد المنبهات 1 على الأقل');
+        return;
+    }
+    if (!intervalMinutes || intervalMinutes < 1) {
+        alert('⚠️ يجب أن يكون الفاصل دقيقة واحدة على الأقل');
+        return;
+    }
+
     const interval = intervalMinutes * 60 * 1000;
     let counter = 0;
 
